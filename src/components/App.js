@@ -1,12 +1,22 @@
 import React from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { Provider } from "react-redux";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { CssBaseline } from "@material-ui/core";
 import Home from "../pages/Home";
+import "typeface-roboto";
+
+import store from "../setup/store";
 
 const App = () => {
   return (
-    <Router>
-      <Route path="/" component={Home} />
-    </Router>
+    <Provider store={store}>
+      <Router>
+        <CssBaseline />
+        <Switch>
+          <Route path="/" component={Home} />
+        </Switch>
+      </Router>
+    </Provider>
   );
 };
 
